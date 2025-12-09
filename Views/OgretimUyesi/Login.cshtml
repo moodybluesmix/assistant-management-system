@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Öğretim Üyesi Girişi";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0" style="background-color: #F3F4F6; border-radius: 12px;">
+                <div class="card-body p-4">
+                    <!-- Başlık -->
+                    <h2 class="text-center" style="color: #1E3A8A; font-family: 'Segoe UI', sans-serif; font-weight: bold;">Öğretim Üyesi Girişi</h2>
+                    <p class="text-center" style="color: #6B7280; font-size: 14px;">Lütfen öğretim üyesi paneline giriş yapın</p>
+                    <hr class="my-4" style="border-color: #D1D5DB;" />
+
+                    <!-- Hata Mesajı -->
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger text-center" style="border-radius: 8px;">
+                            @TempData["Error"]
+                        </div>
+                    }
+
+                    <!-- Form -->
+                    <form method="post" action="/OgretimUyesi/Login">
+                        <!-- Kullanıcı Adı -->
+                        <div class="form-group mb-4">
+                            <label for="kullaniciAdi" class="form-label" style="color: #1E3A8A; font-weight: bold;">Kullanıcı Adı</label>
+                            <input type="text" class="form-control" id="kullaniciAdi" name="kullaniciAdi" placeholder="Kullanıcı adınızı girin" required 
+                                style="border-color: #9CA3AF; border-radius: 8px;" />
+                        </div>
+
+                        <!-- Şifre -->
+                        <div class="form-group mb-4">
+                            <label for="sifre" class="form-label" style="color: #1E3A8A; font-weight: bold;">Şifre</label>
+                            <input type="password" class="form-control" id="sifre" name="sifre" placeholder="Şifrenizi girin" required 
+                                style="border-color: #9CA3AF; border-radius: 8px;" />
+                        </div>
+
+                        <!-- Giriş Yap Butonu -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn" style="background-color: #1E3A8A; color: #FFFFFF; border-radius: 8px; font-weight: bold;">Giriş Yap</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

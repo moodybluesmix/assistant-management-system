@@ -1,0 +1,91 @@
+﻿@model AsistanNobetYonetimi.Models.OgretimUyesi
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Öğretim Üyesi Paneli</h2>
+
+    <!-- Hoş Geldiniz Kartı -->
+    <div class="card shadow mb-4">
+        <div class="card-body text-center">
+            <h5 class="text-success mb-2">Hoş Geldiniz, @Model.IsimSoyisim</h5>
+            <p class="text-muted mb-0">Sorumlu olduğunuz bölüm: <strong>@(Model.bolum?.Isim ?? "Bölüm bilgisi bulunmamaktadır.")</strong></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Bugünkü Nöbetler -->
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm border-0" style="background-color: #F9F9F9; border-radius: 8px;">
+                <div class="card-header text-white text-center py-2" style="background-color: #6C63FF; font-size: 14px; border-radius: 8px 8px 0 0;">
+                    <strong>Bugünkü Nöbetler</strong>
+                </div>
+                <div class="card-body p-2">
+                    @if (Model.bolum?.nobet != null && Model.bolum.nobet.Any())
+                    {
+                        <table class="table table-sm table-borderless">
+                            <thead class="table-light small">
+                                <tr>
+                                    <th>Asistan Adı</th>
+                                    <th>Bölüm</th>
+                                    <th>Tarih</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var nobet in Model.bolum.nobet)
+                                {
+                                    <tr>
+                                        <td class="small">@(nobet.asistan?.AsistanIsimSoyisim ?? "Bilinmiyor")</td>
+                                        <td class="small">@(nobet.bolum?.Isim ?? "Bölüm bilgisi yok")</td>
+                                        <td class="small">@(nobet.NobetTarihi.ToString("dd/MM/yyyy"))</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p class="text-center text-muted small mb-0">Bugün için nöbet bilgisi bulunmamaktadır.</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Bölüm Bilgisi -->
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm border-0" style="background-color: #EFEFFF; border-radius: 8px;">
+                <div class="card-header text-white text-center py-2" style="background-color: #6C63FF; font-size: 14px; border-radius: 8px 8px 0 0;">
+                    <strong>Bölüm Bilgileri</strong>
+                </div>
+                <div class="card-body p-2">
+                    @if (Model.bolum != null)
+                    {
+                        <p class="small mb-1"><strong>Bölüm Adı:</strong> @Model.bolum.Isim</p>
+                        <p class="small mb-1"><strong>Kapasite:</strong> @Model.bolum.Kapasite</p>
+                        <p class="small mb-1"><strong>Mevcut Hasta Sayısı:</strong> @Model.bolum.HastaSayisi</p>
+                        <div class="text-center mt-2">
+                            <!-- Bölüm Tanıtımı Butonu -->
+                            <a href="/Bolum/BolumTanitimi/@Model.bolum.BolumID" class="btn btn-sm btn-primary">Bölüm Tanıtımını Gör</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-center text-muted small mb-0">Bölüm bilgisi bulunmamaktadır.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profil Ayarları -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow-sm border-0" style="background-color: #FFF5E1; border-radius: 8px;">
+                <div class="card-header text-white text-center py-2" style="background-color: #FF9A76; font-size: 14px; border-radius: 8px 8px 0 0;">
+                    <strong>Profil Ayarları</strong>
+                </div>
+                <div class="card-body text-center p-2">
+                    <a href="/OgretimUyesi/ProfilDuzenle" class="btn btn-sm btn-warning">Profilimi Düzenle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
