@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AsistanNobetYonetimi.Models.Randevu>
+
+<div class="container mt-4">
+    <h2 class="text-primary">Randevularım</h2>
+    <hr />
+
+    @if (!Model.Any())
+    {
+        <p class="text-muted text-center">Henüz bir randevu talebiniz bulunmamaktadır.</p>
+    }
+    else
+    {
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>Tarih</th>
+                    <th>Saat</th>
+                    <th>Öğretim Üyesi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var randevu in Model)
+                {
+                    <tr>
+                        <td>@randevu.RandevuTarihi.ToString("dd/MM/yyyy")</td>
+                        <td>@(randevu.musaitlik?.TimeSlot ?? "Saat Bilgisi Yok")</td>
+                        <td>@(randevu.musaitlik?.OgretimUyesi?.IsimSoyisim ?? "Bilinmiyor")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

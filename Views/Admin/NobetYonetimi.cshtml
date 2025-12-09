@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AsistanNobetYonetimi.Models.Nobet>
+
+<div class="container mt-4">
+    <h2 class="text-primary">Nöbet Yönetimi</h2>
+    <a asp-action="YeniNobet" class="btn btn-success mb-3">Yeni Nöbet Ekle</a>
+
+    @if (!Model.Any())
+    {
+        <p class="text-muted text-center">Henüz atanmış bir nöbet bulunmamaktadır.</p>
+    }
+    else
+    {
+        <table class="table table-hover shadow-sm">
+            <thead>
+                <tr>
+                    <th>Bölüm</th>
+                    <th>Asistan</th>
+                    <th>Tarih</th>
+                    <th>Nöbet Saati</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var nobet in Model)
+                {
+                    <tr>
+                        <td>@nobet.bolum?.Isim</td>
+                        <td>@nobet.asistan?.AsistanIsimSoyisim</td>
+                        <td>@nobet.NobetTarihi.ToString("dd/MM/yyyy")</td>
+                        <td>@nobet.NobetSaati</td>
+                        <td>
+                            <form asp-action="NobetSil" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@nobet.NobetID" />
+                                <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

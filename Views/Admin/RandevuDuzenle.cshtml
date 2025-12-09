@@ -1,0 +1,30 @@
+﻿@model AsistanNobetYonetimi.Models.Randevu
+
+<div class="container mt-4">
+    <h2 class="text-primary mb-3">Randevu Düzenle</h2>
+    <form asp-action="RandevuDuzenle" method="post" class="shadow-sm p-3">
+        <input type="hidden" asp-for="RandevuID" />
+
+        <div class="mb-3">
+            <label for="AsistanID" class="form-label">Asistan</label>
+            <select asp-for="AsistanID" class="form-control" asp-items="ViewBag.AsistanList">
+                <option value="">Lütfen bir asistan seçin</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="MusaitlikID" class="form-label">Müsaitlik</label>
+            <select asp-for="MusaitlikID" class="form-control" asp-items="ViewBag.MusaitlikList">
+                <option value="">Lütfen bir zaman dilimi seçin</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="RandevuTarihi" class="form-label">Randevu Tarihi</label>
+            <input asp-for="RandevuTarihi" type="date" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-warning">Güncelle</button>
+        <a asp-action="Randevular" class="btn btn-secondary">İptal</a>
+    </form>
+</div>

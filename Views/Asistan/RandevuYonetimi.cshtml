@@ -1,0 +1,115 @@
+﻿@model AsistanNobetYonetimi.ViewModels.RandevuYonetimViewModel
+
+<div class="container mt-5">
+    <h2 class="text-center">Randevu Yönetimi</h2>
+
+    <div class="row mt-4">
+        <!-- Müsaitlikler Listesi -->
+        <div class="col-md-6">
+            <h3>Müsaitlikler</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tarih</th>
+                        <th>Zaman Dilimi</th>
+                        <th>Öğretim Üyesi</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Musaitlikler != null && Model.Musaitlikler.Any())
+                    {
+                        @foreach (var musaitlik in Model.Musaitlikler)
+                        {
+                            <tr>
+                                <td>@musaitlik.MusaitlikID</td>
+                                <td>@musaitlik.Tarih.ToString("dd/MM/yyyy")</td>
+                                <td>@musaitlik.TimeSlot</td>
+                                <td>@musaitlik.OgretimUyesi.IsimSoyisim</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm"
+                                            onclick="selectMusaitlik(@musaitlik.MusaitlikID, '@musaitlik.Tarih.ToString("yyyy-MM-dd")', '@musaitlik.TimeSlot', '@musaitlik.OgretimUyesi.IsimSoyisim')">
+                                        Seç
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">Henüz bir müsaitlik bulunmamaktadır.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Randevu Talep Formu -->
+        <div class="col-md-6">
+            <h3>Seçili Müsaitlik</h3>
+            <form asp-action="RandevuTalep" method="post">
+                <input type="hidden" id="MusaitlikID" name="MusaitlikID" />
+                <div class="mb-3">
+                    <label for="RandevuTarihi" class="form-label">Tarih</label>
+                    <input type="text" id="RandevuTarihi" name="RandevuTarihi" class="form-control" readonly />
+                </div>
+                <div class="mb-3">
+                    <label for="TimeSlot" class="form-label">Zaman Dilimi</label>
+                    <input type="text" id="TimeSlot" name="TimeSlot" class="form-control" readonly />
+                </div>
+                <div class="mb-3">
+                    <label for="OgretimUyesi" class="form-label">Öğretim Üyesi</label>
+                    <input type="text" id="OgretimUyesi" name="OgretimUyesi" class="form-control" readonly />
+                </div>
+                <button type="submit" class="btn btn-success">Randevu Talep Et</button>
+            </form>
+        </div>
+    </div>
+
+    <hr />
+
+    <!-- Mevcut Randevular -->
+    <div class="row mt-4">
+        <h3>Mevcut Randevularım</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tarih</th>
+                    <th>Zaman Dilimi</th>
+                    <th>Öğretim Üyesi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Randevular != null && Model.Randevular.Any())
+                {
+                    @foreach (var randevu in Model.Randevular)
+                    {
+                        <tr>
+                            <td>@randevu.RandevuID</td>
+                            <td>@randevu.RandevuTarihi.ToString("dd/MM/yyyy")</td>
+                            <td>@randevu.musaitlik.TimeSlot</td>
+                            <td>@randevu.musaitlik.OgretimUyesi.IsimSoyisim</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">Henüz bir randevunuz bulunmamaktadır.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>// Müsaitlik seçildiğinde form otomatik dolduruluyor
+    function selectMusaitlik(musaitlikID, tarih, timeSlot, ogretimUyesi) {
+        document.getElementById("MusaitlikID").value = musaitlikID;
+        document.getElementById("RandevuTarihi").value = tarih;
+        document.getElementById("TimeSlot").value = timeSlot;
+        document.getElementById("OgretimUyesi").value = ogretimUyesi;
+    }</script>

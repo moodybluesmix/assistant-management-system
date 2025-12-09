@@ -1,0 +1,32 @@
+# ---------------------------------------------
+#  ASP.NET Core MVC için GitHub Linguist ayarları
+#  Amaç: C# oranını doğru göstermek
+# ---------------------------------------------
+
+# Razor view dosyalarını C# olarak değerlendir
+*.cshtml linguist-language=C#
+
+# Partial views
+Views/**/*.cshtml linguist-language=C#
+
+# Static dosyaları istatistiklerden çıkar
+wwwroot/**/*.css linguist-detectable=false
+wwwroot/**/*.js linguist-detectable=false
+wwwroot/**/*.html linguist-detectable=false
+wwwroot/**/*.map linguist-detectable=false
+wwwroot/**/*.json linguist-detectable=false
+
+# Lib klasörünü tamamen ignore et (Bootstrap, jQuery vs)
+wwwroot/lib/** linguist-detectable=false
+
+# Resimler / fontlar dahil edilmesin
+*.png linguist-detectable=false
+*.jpg linguist-detectable=false
+*.jpeg linguist-detectable=false
+*.gif linguist-detectable=false
+*.svg linguist-detectable=false
+*.ico linguist-detectable=false
+*.webp linguist-detectable=false
+*.ttf linguist-detectable=false
+*.woff linguist-detectable=false
+*.woff2 linguist-detectable=false

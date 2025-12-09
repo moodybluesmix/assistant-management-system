@@ -1,0 +1,72 @@
+﻿@model AsistanNobetYonetimi.Models.OgretimUyesi
+
+@{
+    ViewData["Title"] = "Öğretim Üyesini Düzenle";
+    var isAdmin = User.IsInRole("Admin"); // Kullanıcının admin olup olmadığını kontrol eder
+}
+
+<div class="container mt-4">
+    <h2>Öğretim Üyesini Düzenle</h2>
+
+    <!-- Hata Mesajları -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <!-- Düzenleme Formu -->
+    <form asp-action="OgretimUyesiDuzenle" method="post">
+        <input type="hidden" name="OgretimUyesiID" value="@Model.OgretimUyesiID" />
+
+        <div class="form-group">
+            <label for="Unvan">Unvan</label>
+            <input type="text" class="form-control" id="Unvan" name="Unvan" value="@Model.Unvan" required />
+        </div>
+        <div class="form-group">
+            <label for="IsimSoyisim">Ad Soyad</label>
+            <input type="text" class="form-control" id="IsimSoyisim" name="IsimSoyisim" value="@Model.IsimSoyisim" required />
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required />
+        </div>
+        <div class="form-group">
+            <label for="Telefon">Telefon</label>
+            <input type="tel" class="form-control" id="Telefon" name="Telefon" value="@Model.Telefon" required />
+        </div>
+        <div class="form-group">
+            <label for="BolumID">Bölüm</label>
+            <select class="form-control" id="BolumID" name="BolumID" required>
+                <option value="">Bölüm Seçin</option>
+                @foreach (var bolum in ViewBag.Bolumler)
+                {
+                    <option value="@bolum.BolumID" selected="@(bolum.BolumID == Model.BolumID)"> @bolum.Isim</option>
+
+                }
+            </select>
+        </div>
+
+        @if (isAdmin)
+                                
+        {
+            <div class="form-group">
+                <label for="KullaniciAdi">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="KullaniciAdi" name="KullaniciAdi" value="@Model.KullaniciAdi" />
+            </div>
+            <div class="form-group">
+                <label for="Sifre">Şifre</label>
+                <input type="password" class="form-control" id="Sifre" name="Sifre" value="@Model.Sifre" />
+            </div>
+        }
+
+        <button type="submit" class="btn btn-primary mt-3">Kaydet</button>
+        <a asp-action="OgretimUyeleri" class="btn btn-secondary mt-3">İptal</a>
+    </form>
+</div>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AsistanNobetYonetimi.Models.Asistan>
+
+@{
+    ViewData["Title"] = "Asistanlar Yönetimi";
+    var isAdmin = true; // Admin kontrolü. Gerçek bir kullanıcı kontrol mekanizmasıyla değiştirin.
+}
+
+<div class="container mt-4">
+    <h2>Asistanlar Yönetimi</h2>
+
+    <!-- Başarı Mesajı -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <!-- Yeni Asistan Ekleme Butonu -->
+    <div class="mb-3">
+        <a asp-action="YeniAsistan" class="btn btn-primary">Yeni Asistan Ekle</a>
+    </div>
+
+    <!-- Asistan Listesi -->
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Ad Soyad</th>
+                <th>Ünvan</th>
+                <th>Kullanıcı Adı</th>
+                @if (isAdmin)
+                {
+                    <th>Şifre</th>
+                }
+                <th>Bölüm</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var asistan in Model)
+            {
+                <tr>
+                    <td>@asistan.AsistanID</td>
+                    <td>@asistan.AsistanIsimSoyisim</td>
+                    <td>@asistan.AsistanUnvan</td>
+                    <td>@asistan.KullaniciAdi</td>
+                    @if (isAdmin)
+                    {
+                        <td>@asistan.Sifre</td>
+                    }
+                    <td>@asistan.bolum?.Isim</td>
+                    <td>
+                        <a asp-action="AsistanDuzenle" asp-route-id="@asistan.AsistanID" class="btn btn-warning btn-sm">Düzenle</a>
+                        <form asp-action="AsistanSil" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@asistan.AsistanID" />
+                            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
