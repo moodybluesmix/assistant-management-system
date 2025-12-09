@@ -1,0 +1,201 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AsistanNobetYonetimi
+build_property.RootNamespace = AsistanNobetYonetimi
+build_property.ProjectDir = C:\Users\melike\Desktop\assistant management system\AsistanNobetYonetimi\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\melike\Desktop\assistant management system\AsistanNobetYonetimi
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 6.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/AcilDurum/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNpbER1cnVtXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/AcilDurum/Yeni.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNpbER1cnVtXFllbmkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/AcilDurumDuzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWNpbER1cnVtRHV6ZW5sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/AcilDurumlar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWNpbER1cnVtbGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/AsistanDuzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQXNpc3RhbkR1emVubGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/Asistanlar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQXNpc3Rhbmxhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/BolumDuzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9sdW1EdXplbmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/Bolumler.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9sdW1sZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/BolumSil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9sdW1TaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/NobetYonetimi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTm9iZXRZb25ldGltaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/OgretimUyeleri.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT2dyZXRpbVV5ZWxlcmkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/OgretimUyesiDuzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT2dyZXRpbVV5ZXNpRHV6ZW5sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/RandevuDuzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmFuZGV2dUR1emVubGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/Randevular.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmFuZGV2dWxhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/YeniAcilDurum.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cWWVuaUFjaWxEdXJ1bS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/YeniAsistan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cWWVuaUFzaXN0YW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/YeniBolum.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cWWVuaUJvbHVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/YeniMusaitlik.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cWWVuaU11c2FpdGxpay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/YeniNobet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cWWVuaU5vYmV0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/YeniOgretimUyesi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cWWVuaU9ncmV0aW1VeWVzaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Admin/YeniRandevu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cWWVuaVJhbmRldnUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Asistan/AcilDurumlar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpc3RhblxBY2lsRHVydW1sYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Asistan/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpc3RhblxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Asistan/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpc3RhblxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Asistan/Randevular.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpc3RhblxSYW5kZXZ1bGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Asistan/RandevuTalep.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpc3RhblxSYW5kZXZ1VGFsZXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Asistan/RandevuYonetimi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpc3RhblxSYW5kZXZ1WW9uZXRpbWkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Bolum/BolumTanitimi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9sdW1cQm9sdW1UYW5pdGltaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Home/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Nobet/Takvim.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9iZXRcVGFrdmltLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/OgretimUyesi/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyZXRpbVV5ZXNpXERhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/OgretimUyesi/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyZXRpbVV5ZXNpXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Randevu/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZGV2dVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Randevu/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZGV2dVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Randevu/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZGV2dVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Randevu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZGV2dVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/melike/Desktop/assistant management system/AsistanNobetYonetimi/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-9879sku45g
