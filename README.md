@@ -57,3 +57,6 @@ Layered structure following the Controller–Service–Repository pattern.
 - Git / GitHub
 - LINQ
 - Dependency Injection
+  
+<img width="1386" height="1006" alt="pediatriyonetimsistemi" src="https://github.com/user-attachments/assets/f2b5d6c1-a8bd-4871-a3af-076f9046d11f" />
+
