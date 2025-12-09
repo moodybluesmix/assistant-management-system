@@ -1,0 +1,137 @@
+﻿@model AsistanNobetYonetimi.Models.Asistan
+@using Newtonsoft.Json
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 style="color: #3B82F6; font-weight: bold; font-family: 'Segoe UI', sans-serif;">Asistan Paneli</h1>
+        <p style="color: #64748B; font-size: 18px;">Kişisel panelinize hoş geldiniz, @Model.AsistanIsimSoyisim!</p>
+    </div>
+
+    <div class="row">
+        <!-- Günlük Nöbet Programı -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm" style="border-radius: 12px; border: none; background-color: #F1F5F9;">
+                <div class="card-header text-white text-center" style="background-color: #3B82F6; font-weight: bold; font-size: 18px;">
+                    Günlük Nöbet Programı
+                </div>
+                <div class="card-body">
+                    @if (Model.nobet != null && Model.nobet.Any())
+                    {
+                        <ul class="list-group">
+                            @foreach (var nobet in Model.nobet)
+                            {
+                                <li class="list-group-item" style="border: none; background-color: #F9FAFB;">
+                                    <strong style="color: #334155;">Tarih:</strong> @nobet.NobetTarihi.ToString("dd/MM/yyyy") <br />
+                                    <strong style="color: #334155;">Bölüm:</strong> @(nobet.bolum?.Isim ?? "Bölüm bilgisi bulunamadı.")
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p class="text-center text-muted" style="font-size: 14px;">Henüz nöbet bilgisi bulunmamaktadır.</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Sorumlu Olduğunuz Bölümler -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm" style="border-radius: 12px; border: none; background-color: #E0E7FF;">
+                <div class="card-header text-white text-center" style="background-color: #6366F1; font-weight: bold; font-size: 18px;">
+                    Sorumlu Olduğunuz Bölümler
+                </div>
+                <div class="card-body text-center">
+                    @if (Model.bolum != null)
+                    {
+                        <p style="color: #334155; font-size: 16px;"><strong>Bölüm Adı:</strong> @Model.bolum.Isim</p>
+                        <a href="/Bolum/BolumTanitimi/@Model.bolum.BolumID" class="btn text-white" style="background-color: #6366F1; border-radius: 8px;">Bölüm Tanıtımını Gör</a>
+                    }
+                    else
+                    {
+                        <p class="text-center text-muted" style="font-size: 14px;">Sorumlu olduğunuz bölüm bulunmamaktadır.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Güncel Randevular -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm" style="border-radius: 12px; border: none; background-color: #F1F5F9;">
+                <div class="card-header text-white text-center" style="background-color: #10B981; font-weight: bold; font-size: 18px;">
+                    Güncel Randevular
+                </div>
+                <div class="card-body">
+                    @if (Model.randevu != null && Model.randevu.Any())
+                    {
+                        <ul class="list-group">
+                            @foreach (var randevu in Model.randevu)
+                            {
+                                <li class="list-group-item" style="border: none; background-color: #F9FAFB;">
+                                    <strong style="color: #334155;">Tarih:</strong> @randevu.RandevuTarihi.ToString("dd/MM/yyyy") <br />
+                                    <strong style="color: #334155;">Zaman:</strong> @randevu.musaitlik.TimeSlot <br />
+                                    <strong style="color: #334155;">Öğretim Üyesi:</strong> @randevu.musaitlik.OgretimUyesi.IsimSoyisim
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p class="text-center text-muted" style="font-size: 14px;">Henüz güncel bir randevunuz bulunmamaktadır.</p>
+                    }
+                    <div class="text-center mt-3">
+                        <a href="/Asistan/RandevuYonetimi" class="btn text-white" style="background-color: #10B981; border-radius: 8px;">Randevu Talep Et</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profil Ayarları -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm" style="border-radius: 12px; border: none; background-color: #FEFCE8;">
+                <div class="card-header text-white text-center" style="background-color: #FACC15; font-weight: bold; font-size: 18px;">
+                    Profil Ayarları
+                </div>
+                <div class="card-body text-center">
+                    <a href="/Asistan/ProfilDuzenle" class="btn text-white" style="background-color: #FACC15; border-radius: 8px;">Profilimi Düzenle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FullCalendar Nöbet Takvimi -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow-sm" style="border-radius: 12px; border: none;">
+                <div class="card-header text-white text-center" style="background-color: #3B82F6; font-weight: bold; font-size: 18px;">
+                    Nöbet Takvimi
+                </div>
+                <div class="card-body">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'tr', // Türkçe dil
+            events: @Html.Raw(JsonConvert.SerializeObject(Model.nobet.Select(n => new {
+                title = n.bolum?.Isim ?? "Bölüm Bilinmiyor",
+                start = n.NobetTarihi.ToString("yyyy-MM-dd"),
+                description = "Asistan: " + (n.asistan?.AsistanIsimSoyisim ?? "Bilinmiyor")
+            }))),
+            eventClick: function (info) {
+                alert(info.event.title + "\n" + info.event.extendedProps.description);
+            }
+        });
+        calendar.render();
+    });
+</script>

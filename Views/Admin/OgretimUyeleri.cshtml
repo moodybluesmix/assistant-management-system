@@ -1,0 +1,73 @@
+﻿<!-- öğretim üyelerini listelemek için-->
+@model IEnumerable<AsistanNobetYonetimi.Models.OgretimUyesi>
+
+@{
+    ViewData["Title"] = "Öğretim Üyeleri";
+    var isAdmin = User.IsInRole("Admin"); // Kullanıcının admin olup olmadığını kontrol eder
+}
+
+<div class="container mt-4">
+    <h2>Öğretim Üyeleri</h2>
+
+    <!-- Başarı Mesajı -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <!-- Yeni Öğretim Üyesi Ekleme Butonu -->
+    <div class="mb-3">
+        <a asp-action="YeniOgretimUyesi" class="btn btn-primary">Yeni Öğretim Üyesi Ekle</a>
+    </div>
+
+    <!-- Öğretim Üyeleri Tablosu -->
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Ad Soyad</th>
+                <th>Ünvan</th>
+                <th>Email</th>
+                <th>Telefon</th>
+                <th>Bölüm</th>
+
+                @if (isAdmin)
+                {
+                    <th>Kullanıcı Adı</th>
+                    <th>Şifre</th>
+                }
+
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var uye in Model)
+            {
+                <tr>
+                    <td>@uye.OgretimUyesiID</td>
+                    <td>@uye.IsimSoyisim</td>
+                    <td>@uye.Unvan</td>
+                    <td>@uye.Email</td>
+                    <td>@uye.Telefon</td>
+                    <td>@uye.bolum?.Isim</td>
+
+                    @if (isAdmin)
+                    {
+                        <td>@uye.KullaniciAdi</td>
+                        <td>@uye.Sifre</td>
+                    }
+
+                    <td>
+                        <a asp-action="OgretimUyesiDuzenle" asp-route-id="@uye.OgretimUyesiID" class="btn btn-warning btn-sm">Düzenle</a>
+                        <form asp-action="OgretimUyesiSil" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@uye.OgretimUyesiID" />
+                            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

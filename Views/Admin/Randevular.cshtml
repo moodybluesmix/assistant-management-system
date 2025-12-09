@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AsistanNobetYonetimi.Models.Randevu>
+
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary">Randevu Yönetimi</h2>
+        <a asp-action="YeniRandevu" class="btn btn-success">Yeni Randevu Ekle</a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <p class="text-center text-muted">Henüz bir randevu oluşturulmamış.</p>
+    }
+    else
+    {
+        <table class="table table-hover shadow-sm">
+            <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>Asistan</th>
+                    <th>Öğretim Üyesi</th>
+                    <th>Tarih</th>
+                    <th>Saat</th>
+                    <th>Durum</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var randevu in Model)
+                {
+                    <tr>
+                        <td>@randevu.RandevuID</td>
+                        <td>@(randevu.asistan?.AsistanIsimSoyisim ?? "Bilinmiyor")</td>
+                        <td>@(randevu.musaitlik?.OgretimUyesi?.IsimSoyisim ?? "Bilinmiyor")</td>
+                        <td>@randevu.RandevuTarihi.ToString("dd/MM/yyyy")</td>
+                        <td>@(randevu.musaitlik?.TimeSlot ?? "Saat Bilgisi Yok")</td>
+                        <td>
+                            <span class="badge @(randevu.musaitlik?.IsAvailable == true ? "bg-success" : "bg-danger")">
+                                @(randevu.musaitlik?.IsAvailable == true ? "Müsait" : "Uygun Değil")
+                            </span>
+                        </td>
+                        <td>
+                            <a asp-action="RandevuDuzenle" asp-route-id="@randevu.RandevuID" class="btn btn-sm btn-warning">Düzenle</a>
+                            <form asp-action="RandevuSil" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@randevu.RandevuID" />
+                                <button type="submit" class="btn btn-sm btn-danger">Sil</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

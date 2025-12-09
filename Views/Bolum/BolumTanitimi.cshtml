@@ -1,0 +1,48 @@
+﻿@model AsistanNobetYonetimi.Models.Bolum
+
+<div class="container mt-5">
+    <!-- Başlık ve Açıklama -->
+    <div class="text-center mb-4">
+        <h4 style="font-family: 'Segoe UI', sans-serif; font-weight: bold; color: #3B82F6;">@Model.Isim</h4>
+        <p style="font-size: 14px; color: #64748B;">Bölüm Tanıtım Sayfası</p>
+    </div>
+
+    <!-- Bölüm Bilgileri -->
+    <div class="card shadow-sm border-0 mb-4" style="background-color: #F1F5F9; border-radius: 12px;">
+        <div class="card-body">
+            <h6 style="color: #1E40AF; font-weight: bold;">Bölüm Bilgileri</h6>
+            <p><strong>Açıklama:</strong> @Model.Tanim</p>
+            <p><strong>Kapasite:</strong> @Model.Kapasite</p>
+            <p><strong>Mevcut Hasta Sayısı:</strong> @Model.HastaSayisi</p>
+        </div>
+    </div>
+
+    <!-- Öğretim Üyeleri -->
+    <div class="card shadow-sm border-0" style="background-color: #E0E7FF; border-radius: 12px;">
+        <div class="card-body">
+            <h6 style="color: #4C1D95; font-weight: bold;">Öğretim Üyeleri</h6>
+            <ul class="list-group list-group-flush">
+                @if (Model.ogretimuyesi != null && Model.ogretimuyesi.Any())
+                {
+                    @foreach (var uye in Model.ogretimuyesi)
+                    {
+                        <li class="list-group-item" style="background-color: #E0E7FF; border: none;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong style="color: #1E40AF;">@uye.IsimSoyisim</strong><br />
+                                    <small class="text-muted">@uye.Unvan</small>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li class="list-group-item text-center text-muted" style="background-color: #E0E7FF; border: none;">
+                        Bu bölümde öğretim üyesi bulunmamaktadır.
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

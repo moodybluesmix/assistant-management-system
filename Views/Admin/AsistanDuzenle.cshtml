@@ -1,0 +1,44 @@
+﻿@model AsistanNobetYonetimi.Models.Asistan
+
+@{
+    ViewData["Title"] = "Asistan Düzenle";
+    var isAdmin = true; // Admin kontrolü. Gerçek bir kullanıcı kontrol mekanizmasıyla değiştirin.
+}
+
+<div class="container mt-4">
+    <h2>Asistan Düzenle</h2>
+
+    <form asp-action="AsistanDuzenle" method="post">
+        <input type="hidden" name="AsistanID" value="@Model.AsistanID" />
+        <div class="form-group">
+            <label for="AsistanIsimSoyisim">Ad Soyad</label>
+            <input type="text" class="form-control" id="AsistanIsimSoyisim" name="AsistanIsimSoyisim" value="@Model.AsistanIsimSoyisim" required />
+        </div>
+        <div class="form-group">
+            <label for="AsistanUnvan">Ünvan</label>
+            <input type="text" class="form-control" id="AsistanUnvan" name="AsistanUnvan" value="@Model.AsistanUnvan" required />
+        </div>
+        <div class="form-group">
+            <label for="KullaniciAdi">Kullanıcı Adı</label>
+            <input type="text" class="form-control" id="KullaniciAdi" name="KullaniciAdi" value="@Model.KullaniciAdi" required />
+        </div>
+        @if (isAdmin)
+        {
+            <div class="form-group">
+                <label for="Sifre">Şifre</label>
+                <input type="password" class="form-control" id="Sifre" name="Sifre" value="@Model.Sifre" required />
+            </div>
+        }
+        <div class="form-group">
+            <label for="BolumID">Bölüm</label>
+            <select class="form-control" id="BolumID" name="BolumID" required>
+                <option value="">Bölüm Seçin</option>
+                @foreach (var bolum in ViewBag.Bolumler)
+                {
+                    <option value="@bolum.BolumID" selected="@(bolum.BolumID == Model.BolumID)"> @bolum.Isim</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Güncelle</button>
+    </form>
+</div>

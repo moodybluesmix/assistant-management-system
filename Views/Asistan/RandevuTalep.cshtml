@@ -1,0 +1,31 @@
+﻿@model AsistanNobetYonetimi.Models.Randevu
+
+<div class="container mt-4">
+    <h2 class="text-primary">Randevu Talep Et</h2>
+    <hr />
+
+    <form method="post" asp-action="RandevuTalep">
+        <div class="mb-3">
+            <label for="RandevuTarihi" class="form-label">Tarih</label>
+            <input type="date" class="form-control" id="RandevuTarihi" name="RandevuTarihi" required />
+        </div>
+        <div class="mb-3">
+            <label for="TimeSlot" class="form-label">Saat Aralığı</label>
+            <select class="form-control" id="TimeSlot" name="TimeSlot">
+                <option value="14:00-14:30">14:00-14:30</option>
+                <option value="14:30-15:00">14:30-15:00</option>
+                <option value="15:00-15:30">15:00-15:30</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="OgretimUyesiID" class="form-label">Öğretim Üyesi</label>
+            <select class="form-control" id="OgretimUyesiID" name="OgretimUyesiID">
+                @foreach (var uye in ViewBag.OgretimUyeleri as IEnumerable<SelectListItem>)
+                {
+                    <option value="@uye.Value">@uye.Text</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Randevu Talep Et</button>
+    </form>
+</div>

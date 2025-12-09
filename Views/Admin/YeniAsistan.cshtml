@@ -1,0 +1,57 @@
+﻿@model AsistanNobetYonetimi.Models.Asistan
+
+@{
+    ViewData["Title"] = "Yeni Asistan Ekle";
+    var isAdmin = true; // Admin kontrolü. Gerçek bir kullanıcı kontrol mekanizmasıyla değiştirin.
+}
+
+<div class="container mt-4">
+    <h2>Yeni Asistan Ekle</h2>
+
+    <!-- Hata Mesajları -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <!-- Asistan Ekleme Formu -->
+    <form asp-action="YeniAsistan" method="post">
+        <div class="form-group">
+            <label for="AsistanIsimSoyisim">Ad Soyad</label>
+            <input type="text" class="form-control" id="AsistanIsimSoyisim" name="AsistanIsimSoyisim" value="@Model.AsistanIsimSoyisim" required />
+        </div>
+        <div class="form-group">
+            <label for="AsistanUnvan">Ünvan</label>
+            <input type="text" class="form-control" id="AsistanUnvan" name="AsistanUnvan" value="@Model.AsistanUnvan" required />
+        </div>
+        <div class="form-group">
+            <label for="KullaniciAdi">Kullanıcı Adı</label>
+            <input type="text" class="form-control" id="KullaniciAdi" name="KullaniciAdi" value="@Model.KullaniciAdi" required />
+        </div>
+        @if (isAdmin)
+        {
+            <div class="form-group">
+                <label for="Sifre">Şifre</label>
+                <input type="text" class="form-control" id="Sifre" name="Sifre" value="@Model.Sifre" required />
+            </div>
+        }
+        <div class="form-group">
+            <label for="BolumID">Bölüm</label>
+            <select class="form-control" id="BolumID" name="BolumID" required>
+                <option value="">Bölüm Seçin</option>
+                @foreach (var bolum in ViewBag.Bolumler)
+                {
+                    <option value="@bolum.BolumID">@bolum.Isim</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Kaydet</button>
+    </form>
+</div>

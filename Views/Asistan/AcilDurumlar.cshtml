@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AsistanNobetYonetimi.Models.AcilDurum>
+
+<div class="container mt-4">
+    <h2 class="text-primary">Acil Durum Duyuruları</h2>
+    @if (!Model.Any())
+    {
+        <p class="text-muted">Henüz bir acil durum duyurusu bulunmamaktadır.</p>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Başlık</th>
+                    <th>Açıklama</th>
+                    <th>Bölüm Adı</th>
+                    <th>Gönderme Tarihi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var acilDurum in Model)
+                {
+                    <tr>
+                        <td>@acilDurum.Baslik</td>
+                        <td>@acilDurum.Aciklama</td>
+                        <td>@acilDurum.BolumAdi</td>
+                        <td>@acilDurum.GondermeTarihi.ToString("dd.MM.yyyy HH:mm")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

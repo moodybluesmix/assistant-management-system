@@ -1,0 +1,30 @@
+﻿@model AsistanNobetYonetimi.Models.Musaitlik
+
+<div class="container mt-4">
+    <h2 class="text-primary">Yeni Müsaitlik Ekle</h2>
+    <form method="post" asp-action="YeniMusaitlik">
+        <div class="form-group mb-3">
+            <label for="OgretimUyesiID">Öğretim Üyesi</label>
+            <select class="form-control" id="OgretimUyesiID" name="OgretimUyesiID" required>
+                <option value="">Öğretim Üyesi Seçin</option>
+                @foreach (var uye in ViewBag.OgretimUyeleri)
+                {
+                    <option value="@uye.OgretimUyesiID">@uye.IsimSoyisim</option>
+                }
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label for="Tarih">Tarih</label>
+            <input type="date" class="form-control" id="Tarih" name="Tarih" required />
+        </div>
+        <div class="form-group mb-3">
+            <label for="TimeSlot">Saat</label>
+            <input type="text" class="form-control" id="TimeSlot" name="TimeSlot" placeholder="Örn: 14:00-14:30" required />
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="IsAvailable" name="IsAvailable" checked />
+            <label class="form-check-label" for="IsAvailable">Müsait</label>
+        </div>
+        <button type="submit" class="btn btn-success">Kaydet</button>
+    </form>
+</div>

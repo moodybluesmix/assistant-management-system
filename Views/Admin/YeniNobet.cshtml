@@ -1,0 +1,36 @@
+﻿@model AsistanNobetYonetimi.Models.Nobet
+
+<div class="container mt-4">
+    <h2 class="text-primary">Yeni Nöbet Ekle</h2>
+    <form method="post" asp-action="YeniNobet">
+        <div class="form-group mb-3">
+            <label for="AsistanID">Asistan</label>
+            <select class="form-control" id="AsistanID" name="AsistanID" required>
+                <option value="">Asistan Seçin</option>
+                @foreach (var asistan in ViewBag.Asistanlar)
+                {
+                    <option value="@asistan.AsistanID">@asistan.AsistanIsimSoyisim</option>
+                }
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label for="BolumID">Bölüm</label>
+            <select class="form-control" id="BolumID" name="BolumID" required>
+                <option value="">Bölüm Seçin</option>
+                @foreach (var bolum in ViewBag.Bolumler)
+                {
+                    <option value="@bolum.BolumID">@bolum.Isim</option>
+                }
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label for="NobetTarihi">Tarih</label>
+            <input type="date" class="form-control" id="NobetTarihi" name="NobetTarihi" required />
+        </div>
+        <div class="form-group mb-3">
+            <label for="NobetSaati">Saat</label>
+            <input type="text" class="form-control" id="NobetSaati" name="NobetSaati" placeholder="Örn: 08:00-17:00" required />
+        </div>
+        <button type="submit" class="btn btn-success">Kaydet</button>
+    </form>
+</div>

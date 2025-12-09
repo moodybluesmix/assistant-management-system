@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AsistanNobetYonetimi.Models.Bolum>
+
+@{
+    ViewData["Title"] = "Bölüm Yönetimi";
+}
+
+<div class="container mt-4">
+    <h2>Bölüm Yönetimi</h2>
+
+    <!-- Yeni Bölüm Ekleme Butonu -->
+    <div class="mb-3">
+        <a asp-action="YeniBolum" class="btn btn-success">Yeni Bölüm Ekle</a>
+    </div>
+
+    <!-- Bölüm Listesi Tablosu -->
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Bölüm Adı</th>
+                <th>Tanım</th>
+                <th>Kapsite</th>
+                <th>Hasta Sayısı</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bolum in Model)
+            {
+                <tr>
+                    <td>@bolum.BolumID</td>
+                    <td>@bolum.Isim</td>
+                    <td>@bolum.Tanim</td>
+                    <td>@bolum.Kapasite</td>
+                    <td>@bolum.HastaSayisi</td>
+                    <td>
+                        <a asp-action="BolumDuzenle" asp-route-id="@bolum.BolumID" class="btn btn-warning btn-sm">Düzenle</a>
+                        <form asp-action="BolumSil" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@bolum.BolumID" />
+                            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

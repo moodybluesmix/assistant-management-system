@@ -1,0 +1,30 @@
+﻿@model AsistanNobetYonetimi.Models.Bolum
+
+@{
+    ViewData["Title"] = "Bölüm Düzenle";
+}
+
+<div class="container mt-4">
+    <h2>Bölüm Düzenle</h2>
+
+    <form asp-action="BolumDuzenle" method="post">
+        <input type="hidden" name="BolumID" value="@Model.BolumID" />
+        <div class="mb-3">
+            <label for="Isim" class="form-label">Bölüm Adı</label>
+            <input type="text" class="form-control" id="Isim" name="Isim" value="@Model.Isim" required />
+        </div>
+        <div class="mb-3">
+            <label for="Tanim" class="form-label">Tanım</label>
+            <input type="text" class="form-control" id="Tanim" name="Tanim" value="@Model.Tanim" required />
+        </div>
+        <div class="mb-3">
+            <label for="Kapasite" class="form-label">Kapasite</label>
+            <input type="number" class="form-control" id="Kapasite" name="Kapasite" value="@Model.Kapasite" required />
+        </div>
+        <div class="mb-3">
+            <label for="HastaSayisi" class="form-label">Hasta Sayısı</label>
+            <input type="number" class="form-control" id="HastaSayisi" name="HastaSayisi" value="@Model.HastaSayisi" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Güncelle</button>
+    </form>
+</div>

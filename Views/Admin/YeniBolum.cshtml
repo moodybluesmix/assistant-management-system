@@ -1,0 +1,29 @@
+﻿@model AsistanNobetYonetimi.Models.Bolum
+
+@{
+    ViewData["Title"] = "Yeni Bölüm Ekle";
+}
+
+<div class="container mt-4">
+    <h2>Yeni Bölüm Ekle</h2>
+
+    <form asp-action="YeniBolum" method="post">
+        <div class="mb-3">
+            <label for="Isim" class="form-label">Bölüm Adı</label>
+            <input type="text" class="form-control" id="Isim" name="Isim" required />
+        </div>
+        <div class="mb-3">
+            <label for="Tanim" class="form-label">Tanım</label>
+            <input type="text" class="form-control" id="Tanim" name="Tanim" required />
+        </div>
+        <div class="mb-3">
+            <label for="Kapasite" class="form-label">Kapasite</label>
+            <input type="number" class="form-control" id="Kapasite" name="Kapasite" required />
+        </div>
+        <div class="mb-3">
+            <label for="HastaSayisi" class="form-label">Hasta Sayısı</label>
+            <input type="number" class="form-control" id="HastaSayisi" name="HastaSayisi" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>

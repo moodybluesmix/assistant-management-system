@@ -1,0 +1,16 @@
+﻿@model AsistanNobetYonetimi.Models.Bolum
+
+@{
+    ViewData["Title"] = "Bölüm Sil";
+}
+
+<div class="container mt-4">
+    <h2>Bölüm Sil</h2>
+    <p><strong>@Model.Isim</strong> adlı bölümü silmek istediğinizden emin misiniz?</p>
+
+    <form asp-action="BolumSil" method="post">
+        <input type="hidden" name="id" value="@Model.BolumID" />
+        <button type="submit" class="btn btn-danger">Evet, Sil</button>
+        <a asp-action="Bolumler" class="btn btn-secondary">Vazgeç</a>
+    </form>
+</div>
